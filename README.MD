@@ -13,7 +13,13 @@ A full-stack notification and messaging platform with admin dashboard for creati
 - ✅ **State Management** - Track notifications through delivery lifecycle (QUEUED → SENT/FAILED)
 - ✅ **Responsive UI** - Modern React interface with Vite for fast development
 
-## 🏗️ Tech Stack
+## � Demo Video
+
+Watch the complete walkthrough and demonstration of the In-App Messaging System:
+
+📹 **[View Demo Video](https://drive.google.com/file/d/1hwJe_TiKXzdonmHlQZEYBl-IewfI694f/view?usp=sharing)**
+
+## �🏗️ Tech Stack
 
 ### Backend
 
