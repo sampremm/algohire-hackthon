@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon index.js",
+    "start": "node index.js",
+    "seed": "node seed.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@prisma/client": "^6.19.2",
+    "bullmq": "^5.67.3",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "ioredis": "^5.9.2",
+    "pg": "^8.18.0",
+    "prisma": "^6.19.2",
+    "uuid": "^13.0.0"
+  }
+}

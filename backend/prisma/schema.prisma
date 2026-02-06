@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum DeliveryStatus {
+  QUEUED
+  PROCESSING
+  RETRYING
+  SENT
+  FAILED
+}
+
+model User {
+  id            String             @id @default(uuid())
+  name          String
+  role          Role
+  notifications UserNotification[]
+}
+
+model NotificationTemplate {
+  id            String   @id @default(uuid())
+  titleTemplate String
+  bodyTemplate  String
+  createdAt     DateTime @default(now())
+}
+
+model NotificationBatch {
+  id         String   @id @default(uuid())
+  templateId String
+  createdAt  DateTime @default(now())
+}
+
+model NotificationDelivery {
+  id         String         @id @default(uuid())
+  batchId    String
+  userId     String
+  status     DeliveryStatus
+  retryCount Int            @default(0)
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+}
+
+model UserNotification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  title     String
+  body      String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
